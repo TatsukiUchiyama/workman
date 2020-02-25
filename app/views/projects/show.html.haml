@@ -1,6 +1,8 @@
 .header
   .header__text
     WORKER
+  = link_to corporation_projects_path(@corporation.id) do
+    <i class="fas fa-arrow-left"></i>
   = link_to edit_user_path(current_user) do
     <i class="fas fa-cog"></i>
   = link_to destroy_user_session_path, method: :delete do
@@ -9,19 +11,22 @@
   .index_header
     %ul 
       %li.list_index
-        ネットリーフ株式会社
-      %li.list_new
-        %a(href="/projects/new")
-          新規登録
+        = @project.name
   %ul.tab-group
-    %li.tab.is-active 案件一覧
+    %li.tab.is-active 詳細
     %li.tab メッセージ
-
   .panel-group
     .panel.is-show 
-      .index
-        .index__btn
-          %a(href="/projects/show")
-            .index__btn--text
-              = project.name(@project.id)
+      .project__member.project__label  人数
+      .project__member.project__content
+        = @project.member
+      .project__time.project__label  時間
+      .project__time.project__content
+        = @project.time
+      .project__address.project__label  住所
+      .project__address.project__content
+        = @project.address
+      .project__text.project__label  内容
+      .project__text.project__content.textarea
+        = @project.text
     .panel ここでチャットしたい

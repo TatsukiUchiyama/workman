@@ -2,6 +2,7 @@
   width: 100%;
   height: 50px;
   background: $sea;
+  
   ul{
     position: relative;
     line-height: 50px;
@@ -11,10 +12,16 @@
     .list_index{
       font-size: 20px;
       text-align: center;
+      padding: 0 80px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
     }
     .list_index__all{
-      // font-size: 20px;
+      font-size: 20px;
       text-align: center;
+
     }
     .list_new{
       font-size: 15px;
@@ -25,8 +32,8 @@
   }
 }
 .index{
-  width: 80%;
-  height: 50px;
+  width: 70%;
+  height: auto;
   background-image: image-url("yellow.jpg");
   margin: 20px auto 0;
   border-radius: 10px;
@@ -38,6 +45,9 @@
       font-size: 20px;
       font-family:serif;
       color: blue;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
     }
   }

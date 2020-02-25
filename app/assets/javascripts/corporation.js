@@ -1,4 +1,3 @@
-
 $(function(){
 	$('.tab').click(function(){
 		$('.is-active').removeClass('is-active');

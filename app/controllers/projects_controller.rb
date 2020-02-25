@@ -17,15 +17,19 @@ class ProjectsController < ApplicationController
     Project.create(project_params)
     # binding.pry
     # redirect_to corporation_projects_path(params[:corporation_id])
-
-
     # @corporation = Corporation.find(params[:corporation_id])
     # @project = @corporation.projects.new(project_params)
     # @project.save
-    binding.pry
     redirect_to corporation_projects_path(params[:corporation_id])
 
   end
+
+
+  def show
+    @project = Project.find(params[:id])
+    @corporation = Corporation.find(params[:corporation_id])
+  end
+
 
 
   private
