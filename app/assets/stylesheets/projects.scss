@@ -33,3 +33,26 @@
 // 	display: block;
 // 	color: blue;
 // }
+
+.project__label{
+	display: block;
+	text-align: center;
+	height: 40px;
+	font-size: 20px;
+	padding-top: 20px;
+}
+
+.project__content{
+
+	margin: 0 auto;
+	text-align: center;
+	height: auto;
+	line-height: 40px;
+	width: 70%;
+	background-color: rgb(238, 197, 83);
+	font-size: 25px;
+}
+.project__content.textarea{
+	height: auto;
+
+}

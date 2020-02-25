@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'projects/new'
-
-  get 'projects/index'
-
   devise_for :users
   get 'corporations/index'
   root "corporations#index"

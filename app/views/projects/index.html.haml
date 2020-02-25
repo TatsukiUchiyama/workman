@@ -1,6 +1,8 @@
 .header
   .header__text
     WORKER
+  = link_to corporations_path do
+    <i class="fas fa-arrow-left"></i>
   = link_to edit_user_path(current_user) do
     <i class="fas fa-cog"></i>
   = link_to destroy_user_session_path, method: :delete do
@@ -9,7 +11,7 @@
   .index_header
     %ul 
       %li.list_index
-        ネットリーフ株式会社
+        = @corporation.name
       %li.list_new
         = link_to new_corporation_project_path(@corporation.id) do
           新規登録
@@ -17,5 +19,6 @@
     %li.tab.is-active 案件一覧
     %li.tab メッセージ
   .panel-group
-    = render @projects
+    .panel.is-show 
+      = render @projects
     .panel ここでチャットしたい
