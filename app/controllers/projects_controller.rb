@@ -22,7 +22,6 @@ class ProjectsController < ApplicationController
     # @corporation = Corporation.find(params[:corporation_id])
     # @project = @corporation.projects.new(project_params)
     # @project.save
-    binding.pry
     redirect_to corporation_projects_path(params[:corporation_id])
 
   end
