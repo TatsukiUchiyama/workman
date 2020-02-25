@@ -1,0 +1,42 @@
+.header
+  .header__text
+    WORKER
+.main
+  = form_for [@corporation, @project] do |f|
+    %ul.tab-group
+      %li.tab.is-active 案件一覧
+      %li.tab メッセージ
+    .panel-group
+      .panel.is-show 
+        .new__project
+          .new__project__name
+            = f.label :"案件名", class: 'new__project__name--text'
+          .new__project__name__form
+            = f.text_field :name, class: 'new__project__name__form--box'
+
+          .new__project__address
+            = f.label :"住所", class: 'new__project__address--text'
+          .new__project__address__form
+            = f.text_field :address, class: 'new__project__address__form--box'
+
+          .new__project__member
+            = f.label :"人数", class: 'new__project__member--text'
+          .new__project__member__form
+            = f.text_field :member, class: 'new__project__member__form--box'
+
+
+          .new__project__time
+            = f.label :"時間", class: 'new__project__time--text'
+          .new__project__time__form
+            = f.text_field :time, class: 'new__project__time__form--box'
+
+          .new__project__submit
+            = f.submit "案件を登録する", class: 'new__project__submit__btn'
+      .panel
+        .new__project
+          .new__project__content
+            = f.label :"内容", class: 'new__project__content--text'
+          .new__project__content__form
+            = f.text_area :text, class: 'new__project__content__form--area'
+          .new__project__submit
+            = f.submit "案件を登録する", class: 'new__project__submit__btn'

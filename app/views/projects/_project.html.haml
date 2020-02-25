@@ -1,0 +1,6 @@
+.panel.is-show 
+  .index
+    .index__btn
+      = link_to new_corporation_project_path(project.id) do
+        .index__btn--text
+          = project.name

@@ -1,0 +1,75 @@
+.account-page{
+
+  &__header{
+  width: 100%;
+  height: 50px;
+  background: $sea;
+  font-size: 30px;
+  text-align: center;
+  font-family: serif;
+  line-height: 50px;
+  }
+  .field{
+    text-align: center;
+  }
+  .field-label{
+    font-size: 30px;
+    font-family: $main_font;
+    padding-top: 20px;
+  }
+  .field-input{
+    &__text{
+      width: 350px;
+    }
+
+  }
+  .actions{
+    padding-top: 10px;
+    .login_btn{
+      background: $yellow;
+      height: 50px;
+      width: 100px;
+      font-size: 20px;
+      font-family: $main_font;
+      border-radius: 5px;
+    }
+    .signin_btn{
+      background: $yellow;
+      height: 50px;
+      width: 200px;
+      font-size: 20px;
+      font-family: $main_font;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  }
+  &__bottom{
+    height: 50px;
+    width: 150px;
+    margin: 20px auto 0;
+    background: $yellow;
+    border-radius: 5px;
+    &__link{
+
+      &--text{
+        text-align: center;
+        line-height: 50px;   
+        color: black;
+        font-family: $main_font;
+
+      }
+    }
+  }
+}
+.btn{
+background: $yellow;
+display: block;
+height: 50px;
+width: 350px;
+font-size: 20px;
+font-family: $main_font;
+border-radius: 5px;
+margin: 20px auto 0;
+text-align: center;
+line-height: 50px;
+}

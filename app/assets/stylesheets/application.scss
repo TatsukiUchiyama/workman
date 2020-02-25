@@ -1,0 +1,60 @@
+$yellow: image-url("yellow.jpg");
+$sea   : image-url("sea.jpg");
+$main_font  :serif;
+@import "reset";
+@import "corporation";
+@import "projects";
+@import "users";
+@import "new";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+.header{
+  background-image: image-url('sun.jpg');
+  width: 100%;
+  height: 70px;
+  display: flex;  
+  position: relative;
+  &__text{
+  line-height: 90px;
+  text-align: center;
+  font-size: 45px;
+  font-family: fantasy;
+  margin: 0 auto;
+  }
+
+}
+.main{
+  background-image: image-url('blue.jpg');
+  width: 100%;
+  height: calc( 100vh - 70px );
+  overflow-y: overlay;
+
+}
+a{
+  text-decoration : none ;
+  }
+
+.fas.fa-cog{
+  position: absolute;
+  font-size: 30px;
+  right: 5px;
+  line-height: 80px;
+  }
+
+.fa-sign-out-alt{
+  position: absolute;
+  font-size: 30px;
+  right: 40px;
+  line-height: 80px;
+}
+
+// .btn {
+//   font-size: 15px;
+//   width: 80%;
+//   height: 50px;
+//   background-image: image-url("yellow.jpg");
+//   margin: 20px auto 0;
+//   border-radius: 10px;
+// }
