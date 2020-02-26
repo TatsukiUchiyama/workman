@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root "corporations#index"
   resources :users
   resources :corporations do
-    resources :projects
+    resources :projects do
+      resources :project_messages
+    end
   end
 end

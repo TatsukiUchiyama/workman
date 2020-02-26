@@ -14,5 +14,6 @@ module Workman
       g.helper false
       g.test_framework false
     end
+    config.time_zone = 'Tokyo'
   end
 end
