@@ -14,7 +14,8 @@
         = @project.name
   %ul.tab-group
     %li.tab.is-active 詳細
-    %li.tab メッセージ
+    = link_to corporation_project_project_messages_path(@corporation.id, @project.id), class:"tab" do
+      メッセージ
   .panel-group
     .panel.is-show 
       .project__member.project__label  人数
@@ -29,4 +30,4 @@
       .project__text.project__label  内容
       .project__text.project__content.textarea
         = @project.text
-    .panel ここでチャットしたい
+      
