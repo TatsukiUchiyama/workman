@@ -12,7 +12,12 @@
         会社一覧
       %li.list_new
         -# = link_to new_company_path
-        %a(href="/corporations/new")
+        = link_to new_corporation_path do
           登録
-  = render @corporation
-  
+
+  - current_user.corporations.each do |corporation|
+    .index
+      .index__btn
+        = link_to corporation_projects_path(corporation.id) do
+          .index__btn--text
+            = corporation.name
