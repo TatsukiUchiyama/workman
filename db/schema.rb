@@ -15,11 +15,9 @@ ActiveRecord::Schema.define(version: 20200225112441) do
   create_table "corporation_user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "corporation_id"
-    t.integer  "role_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["corporation_id"], name: "index_corporation_user_roles_on_corporation_id", using: :btree
-    t.index ["role_id"], name: "index_corporation_user_roles_on_role_id", using: :btree
     t.index ["user_id"], name: "index_corporation_user_roles_on_user_id", using: :btree
   end
 
@@ -83,7 +81,6 @@ ActiveRecord::Schema.define(version: 20200225112441) do
   end
 
   add_foreign_key "corporation_user_roles", "corporations"
-  add_foreign_key "corporation_user_roles", "roles"
   add_foreign_key "corporation_user_roles", "users"
   add_foreign_key "project_messages", "projects"
   add_foreign_key "project_messages", "users"

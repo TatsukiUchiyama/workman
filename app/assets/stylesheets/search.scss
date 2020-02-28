@@ -1,0 +1,99 @@
+.corporation_member-form__label{
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  padding: 10px;
+}
+
+#user-search-field{
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 60%;
+  height: 50px;
+  font-size: 20px;
+}
+.corporation_member-user{
+  display: flex;
+  justify-content: space-between;
+
+  &__name{
+    width: 70px;
+    height: 25px;
+    padding: 20px;
+    &--text{
+      text-align: center;
+      display: block;
+      font-size: 15px;
+
+    }
+  }
+  &__role{
+    margin: auto;
+    &--item{
+      height: 30px;
+      width: 120px;
+      font-size: 20px;
+    }
+  }
+
+  &__btn{
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    width: 60px;
+    height: 20px;
+    margin: auto 20px;
+    background-color: #9d9bff;
+    border-radius: 20px;
+    // position: absolute;
+    // right: 20px;
+    // top: 15px;
+  }
+
+}
+
+
+.corporation_member-form__action-btn{
+  background-color: rgb(250, 203, 83);
+  height: 50px;
+  width: 200px;
+  border-radius: 20px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+ 
+// .corporation_member-form__field
+// .corporation_member-form__field--left
+//   %label.corporation_member-form__label{:for => "corporation_member_メンバーを追加"} メンバーを追加する
+// .corporation_member-form__field--right
+//   .corporation_member-form__search
+//     %input#user-search-field.corporation_member-form__input{:placeholder => "追加したいメンバーの名前を入力してください", :type => "text"}/
+//   #user-search-result
+
+// -# jsで追加されたユーザー名を表示する
+// .corporation_member-form__field
+// .corporation_member-form__field--left
+//   %label.corporation_member-form__label{:for => "corporation_member_チャットメンバー"} チャットメンバー
+// .corporation_member-form__field--right
+//   #corporation_member-users.js-add-user
+//     .corporation_member-user.js-corporation_member
+//       %input{name: "@corporation[user_ids][]", type: "hidden", value: current_user.id}
+//       %p.corporation_member-user__name= current_user.name
+
+//     - @corporation.users.each do |user|
+//       - if current_user.name != user.name
+//         .corporation_member-user.js-corporation_member
+//           %input{name: "group[user_ids][]", type: "hidden", value: user.id}
+//           %p.corporation_member-user__name
+//             = user.name
+//           %a.user-search-remove.corporation_member-user__btn.corporation_member-user__btn--remove.js-remove-btn
+//             削除
+// -# submitボタン
+// .corporation_member-form__field
+// .corporation_member-form__field--left
+// .corporation_member-form__field--right
+//   = f.submit class: 'corporation_member-form__action-btn'

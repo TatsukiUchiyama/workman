@@ -13,9 +13,10 @@
       %li.list_index
         = @project.name
   %ul.tab-group
-    %li.tab.is-active 詳細
-    = link_to corporation_project_project_messages_path(@corporation.id, @project.id), class:"tab" do
-      メッセージ
+    %li.link_tab.is-active 詳細
+    %li.link_tab
+      = link_to corporation_project_project_messages_path(@corporation.id, @project.id), class:"tab" do
+        メッセージ
   .panel-group
     .panel.is-show 
       .project__member.project__label  人数

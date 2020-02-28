@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-
+  has_many :corporations, through: :corporation_user_roles
+  # has_many :roles, through: :corporation_user_roles
+  has_many :corporation_user_roles
 end
