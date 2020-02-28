@@ -1,0 +1,62 @@
+.header
+  .header__text
+    WORKER
+  = link_to corporations_path do
+    <i class="fas fa-arrow-left"></i>
+  = link_to edit_user_path(current_user) do
+    <i class="fas fa-cog"></i>
+  = link_to destroy_user_session_path, method: :delete do
+    <i class="fas fa-sign-out-alt"></i>
+.main
+  .index_header
+    %ul 
+      %li.list_index
+        = @corporation.name
+      %li.list_new
+        = link_to new_corporation_project_path(@corporation.id) do
+          新規登録
+  %ul.tab-group
+    %li.link_tab
+      = link_to corporation_projects_path(@corporation.id) do
+        案件一覧
+    %li.link_tab.is-active メンバー追加
+  .panel-group
+    .panel
+    .panel.is-show 
+      = form_for @corporation do |f|
+        -# メンバーを検索するボックス
+        .corporation_member-form__field
+          .corporation_member-form__field--left
+            %label.corporation_member-form__label メンバーを追加する
+          .corporation_member-form__field--right
+            .corporation_member-form__search
+              %input#user-search-field.corporation_member-form__input{:placeholder => "名前を入力してください", :type => "text"}/
+            #user-search-result
+
+        -# jsで追加されたユーザー名を表示する
+        .corporation_member-form__field
+          .corporation_member-form__field--left
+            %label.corporation_member-form__label 現在のチャットメンバー
+          .corporation_member-form__field--right
+            #corporation_member-users.js-add-user
+
+              .corporation_member-user.js-corporation_member
+                %input{name: "corporation[user_ids][]", type: "hidden", value: current_user.id}
+                -# %input{name: "corporation[role_ids][]", type: "hidden", value: 1}
+                .corporation_member-user__name
+                  %p.corporation_member-user__name--text= current_user.name
+
+              - @corporation.users.each do |user|
+                - if current_user.name != user.name
+                  .corporation_member-user.js-corporation_member
+                    %input{name: "corporation[user_ids][]", type: "hidden", value: user.id}
+                    .corporation_member-user__name
+                      %p.corporation_member-user__name--text
+                        = user.name
+                    %a.user-search-remove.corporation_member-user__btn.corporation_member-user__btn--remove.js-remove-btn
+                      削除
+        -# submitボタン
+        .corporation_member-form__field
+          .corporation_member-form__field--left
+          .corporation_member-form__field--right
+            = f.submit "メンバーを追加する", class: 'corporation_member-form__action-btn'

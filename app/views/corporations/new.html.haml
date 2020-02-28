@@ -1,6 +1,8 @@
 .header
   .header__text
     WORKER
+    = link_to root_path do
+      <i class="fas fa-arrow-left"></i>
 .main
   = form_for @corporation do |f|
     .corporation-form
@@ -8,31 +10,38 @@
         = f.label :会社名, class: 'chat-group-form__label'
       .corporation-form__name-area
         = f.text_field :name, class: 'corporation-form__name-area__box'
-    -# .chat-group-form__field
-    -#   .chat-group-form__field--left
-    -#     %label.chat-group-form__label{:for => "chat_group_チャットメンバーを追加"} 追加したい人を検索
-    -#   .chat-group-form__field--right
-    -#     .chat-group-form__search.clearfix
-    -#       %input#user-search-field.chat-group-form__input{:placeholder => "追加したいユーザー名を入力してください", :type => "text"}/
-    -#     #user-search-result
 
-    -# .chat-group-form__field.clearfix
-    -#   .chat-group-form__field--left
-    -#     %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} メンバーを登録
-    -#   .chat-group-form__field--right
-    -#     #chat-group-users.js-add-user
-    -#       .chat-group-user.clearfix.js-chat-member
-    -#         %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
-    -#         %p.chat-group-user__name= current_user.name
+    .corporation_member-form__field
+      .corporation_member-form__field--left
+        %label.corporation_member-form__label メンバーを追加する
+      .corporation_member-form__field--right
+        .corporation_member-form__search
+          %input#user-search-field.corporation_member-form__input{:placeholder => "名前を入力してください", :type => "text"}/
+        #user-search-result
 
-          -# - group.users.each do |user|
-          -#   - if current_user.name != user.name
-          -#     .chat-group-user.clearfix.js-chat-member
-          -#       %input{name: "group[user_ids][]", type: "hidden", value: user.id}
-          -#       %p.chat-group-user__name
-          -#         = user.name
-          -#       %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
-          -#         削除
+    -# jsで追加されたユーザー名を表示する
+    .corporation_member-form__field
+      .corporation_member-form__field--left
+        %label.corporation_member-form__label 現在のチャットメンバー
+      .corporation_member-form__field--right
+        #corporation_member-users.js-add-user
+
+          .corporation_member-user.js-corporation_member
+            %input{name: "corporation[user_ids][]", type: "hidden", value: current_user.id}
+            %input{name: "corporation[role_ids][]", type: "hidden", value: 1}
+            .corporation_member-user__name
+              %p.corporation_member-user__name--text= current_user.name
+
+          - @corporation.users.each do |user|
+            - if current_user.name != user.name
+              .corporation_member-user.js-corporation_member
+                %input{name: "corporation[user_ids][]", type: "hidden", value: user.id}
+                -# %input{name: "corporation[role_ids][]", type: "hidden", value: 2}
+                .corporation_member-user__name
+                  %p.corporation_member-user__name--text
+                    = user.name
+                %a.user-search-remove.corporation_member-user__btn.corporation_member-user__btn--remove.js-remove-btn
+                  削除
     .corporation-form__submit
       = f.submit value: "会社を登録する", class: "corporation-form__submit__btn"
 

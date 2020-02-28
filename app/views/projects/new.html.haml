@@ -1,11 +1,17 @@
 .header
   .header__text
     WORKER
+    = link_to  corporation_projects_path(@corporation.id) do
+      <i class="fas fa-arrow-left"></i>
 .main
+  .index_header
+    %ul 
+      %li.list_index
+        = @corporation.name
   = form_for [@corporation, @project] do |f|
     %ul.tab-group
-      %li.tab.is-active 案件一覧
-      %li.tab メッセージ
+      %li.tab.is-active 情報
+      %li.tab 内容
     .panel-group
       .panel.is-show 
         .new__project
@@ -37,6 +43,6 @@
           .new__project__content
             = f.label :"内容", class: 'new__project__content--text'
           .new__project__content__form
-            = f.text_area :text, class: 'new__project__content__form--area'
+            = f.text_area :text, class: 'new__project__content__form--area', placeholder:"仕事内容等を入力してください"
           .new__project__submit
             = f.submit "案件を登録する", class: 'new__project__submit__btn'

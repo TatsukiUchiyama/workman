@@ -13,9 +13,11 @@
       %li.list_index
         = @project.name
   %ul.tab-group
-    = link_to corporation_project_path(@corporation.id, @project.id), class:"tab" do
-      詳細
-    %li.tab.is-active メッセージ
+    %li.link_tab
+      = link_to corporation_project_path(@corporation.id, @project.id), class:"tab" do
+        詳細
+    %li.link_tab.is-active
+      メッセージ
 
   .project_messages
     = render @messages

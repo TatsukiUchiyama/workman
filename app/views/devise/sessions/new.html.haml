@@ -1,21 +1,25 @@
-.account-page
-  .account-page__header
-    Log in
-  .user-form
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        .field-label
-          = f.label :メールアドレス
-        .field-input
-          = f.email_field :email, autofocus: true, class: 'field-input__text'
+.header
+  .header__text
+    WORKER
+.main
+  .account-page
+    .account-page__header
+      Log in
+    .user-form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           .field-label
-            = f.label :パスワード
+            = f.label :メールアドレス
           .field-input
-            = f.password_field :password, autocomplete: "off",class: 'field-input__text'
-        .actions
-          = f.submit "ログイン", class: 'login_btn'
-  .account-page__bottom
-    = link_to new_user_registration_path class:"account-page__bottom__link" do
-      .account-page__bottom__link--text
-        アカウント新規登録
+            = f.email_field :email, autofocus: true, class: 'field-input__text'
+          .field
+            .field-label
+              = f.label :パスワード
+            .field-input
+              = f.password_field :password, autocomplete: "off",class: 'field-input__text'
+          .actions
+            = f.submit "ログイン", class: 'login_btn'
+    .account-page__bottom
+      = link_to new_user_registration_path class:"account-page__bottom__link" do
+        .account-page__bottom__link--text
+          アカウント新規登録
