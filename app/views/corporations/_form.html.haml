@@ -1,0 +1,30 @@
+= form_for corporation do |f|
+  -# メンバーを検索するボックス
+  .search_member-form__field
+    %label.search_member-form__label メンバーを追加する
+    .search_member-form__search
+      %input#user-search-field.search_member-form__input{:placeholder => "名前を入力してください", :type => "text"}/
+    #user-search-result
+
+  -# jsで追加されたユーザー名を表示する
+  .search_member-form__field
+    %label.search_member-form__label 現在のメンバー
+    #search_member-users.js-add-user
+      .search_member-user.js-search_member
+        %input{name: "corporation[user_ids][]", type: "hidden", value: current_user.id}
+        -# %input{name: "corporation[role_ids][]", type: "hidden", value: 1}
+        .search_member-user__name
+          %p.search_member-user__name--text= current_user.name
+
+      - corporation.users.each do |user|
+        - if current_user.name != user.name
+          .search_member-user.js-corporation_member
+            %input{name: "corporation[user_ids][]", type: "hidden", value: user.id}
+            .search_member-user__name
+              %p.search_member-user__name--text
+                = user.name
+            %a.user-search-remove.search_member-user__btn.search_member-user__btn--remove.js-remove-btn
+              削除
+  -# submitボタン
+  .search_member-form__field
+    = f.submit "登録する", class: 'search_member-form__action-btn'

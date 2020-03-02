@@ -1,0 +1,31 @@
+.header
+  .header__text
+    =link_to root_path do
+      WORKER
+    = link_to  corporation_projects_path(@corporation.id) do
+      <i class="fas fa-arrow-left"></i>
+.main
+  .index_header
+    %ul 
+      %li.list_index
+        = @project.name
+  %ul.tab-group
+    %li.link_tab.three
+      = link_to corporation_project_path(@corporation.id, @project.id), class:"tab" do
+        詳細
+    %li.link_tab.is-active.three メンバーを表示
+    %li.link_tab.three
+      = link_to corporation_project_project_messages_path(@corporation.id, @project.id), class:"tab" do
+        メッセージ
+
+
+
+  .project_member_index
+    メンバー名
+    - @project.users.each do |user|
+      = link_to user_path(user.id) do
+        .project_member.name
+          = user.name
+    = link_to edit_corporation_project_path(@corporation.id, @project.id) do
+      .project_member.edit_view.project_member_edit_btn
+        edit画面へ

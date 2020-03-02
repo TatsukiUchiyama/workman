@@ -5,12 +5,17 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @corporation = Corporation.find(params[:corporation_id])
     @projects = @corporation.projects.all
-    @id = (params[:corporation_id])
   end
 
   def new
     @corporation = Corporation.find(params[:corporation_id])
     @project = Project.new
+    return nil if params[:keyword] == ""
+    @users = @corporation.users.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -25,21 +30,25 @@ class ProjectsController < ApplicationController
     @corporation = Corporation.find(params[:corporation_id])
   end
 
-  # def edit
+  def edit
+    @corporation = Corporation.find(params[:corporation_id])
+    @project = Project.find(params[:id])
+    return nil if params[:keyword] == ""
+    @users = @corporation.users.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
-  # end
-
-  # def update
-
-  # end
-
-  private
-  def project_params
-    params.require(:project).permit(:name, :member, :time, :address, :text).merge(corporation_id: params[:corporation_id])
+  def update
+    @project = Project.find(params[:id])
+    @project.update(project_params)
+    redirect_to corporation_project_path(params[:corporation_id], params[:id])
   end
 
   private
-  def corporation_params
-    params.require(:corporation).permit(:name, user_ids: [])
+  def project_params
+    params.require(:project).permit(:name, :member, :time, :address, :text,  user_ids: []).merge(corporation_id: params[:corporation_id])
   end
 end

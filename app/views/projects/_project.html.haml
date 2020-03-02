@@ -1,6 +1,6 @@
--# - if current_user.id != project.users.ids
-.index
-  .index__btn
-    = link_to corporation_project_path(@corporation.id, project.id) do
-      .index__btn--text
-        = project.name
+- if project.users.include?(current_user)
+  .index.hidden
+    .index__btn
+      = link_to corporation_project_path(@corporation.id, project.id) do
+        .index__btn--text
+          = project.name
