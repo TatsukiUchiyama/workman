@@ -3,11 +3,11 @@ $(function(){
 
   function addUser(user){
         let html = `
-          <div class="corporation_member-user">
-            <div class="corporation_member-user__name">
-              <p class="corporation_member-user__name--text">${user.name}</p>
+          <div class="search_member-user">
+            <div class="search_member-user__name">
+              <p class="search_member-user__name--text">${user.name}</p>
             </div>
-            <div class="user-search-add corporation_member-user__btn corporation_member-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
+            <div class="user-search-add search_member-user__btn search_member-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
           </div>
         `;
         $("#user-search-result").append(html);
@@ -15,8 +15,8 @@ $(function(){
     
       function addNoUser() {
         let html = `
-          <div class="corporation_member-user">
-            <p class="corporation_member-user__name">ユーザーが見つかりません</p>
+          <div class="search_member-user">
+            <p class="search_member-user__name">ユーザーが見つかりません</p>
           </div>
         `;
         $("#user-search-result").append(html);
@@ -24,17 +24,18 @@ $(function(){
 
       function addDeleteUser(name, id) {
         let html = `
-        <div class="corporation_member-user" id="${id}">
-          <div class="corporation_member-user__name">
-            <p class="corporation_member-user__name--text">${name}</p>
+        <div class="search_member-user" id="${id}">
+          <div class="search_member-user__name">
+            <p class="search_member-user__name--text">${name}</p>
           </div>
-          <div class="user-search-remove corporation_member-user__btn corporation_member-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+          <div class="user-search-remove search_member-user__btn search_member-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
         </div>`;
         $(".js-add-user").append(html);
       }
 
       function addMember(userId) {
-        let html = `<input value="${userId}" name="corporation[user_ids][]" type="hidden" id="corporation_user_ids_${userId}" />`;
+        let html = `<input value="${userId}" name="corporation[user_ids][]" type="hidden" id="corporation_user_ids_${userId}" />
+                    <input value="${userId}" name="project[user_ids][]" type="hidden" id="project_user_ids_${userId}" />`;
         $(`#${userId}`).append(html);
       }
 
@@ -51,8 +52,8 @@ $(function(){
       $("#user-search-result").empty();
       if (users.length !== 0){
         users.forEach(function(user){
-        addUser(user);
-         });
+          addUser(user);
+        });
       } else if (input.length == 0) {
         return false;
       }else{
@@ -65,14 +66,14 @@ $(function(){
     });
   });
 
-  $(document).on("click", ".corporation_member-user__btn--add", function() {
+  $(document).on("click", ".search_member-user__btn--add", function() {
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this).parent().remove();
     addDeleteUser(userName, userId);
     addMember(userId);
   });
-  $(document).on("click", ".corporation_member-user__btn--remove", function() {
+  $(document).on("click", ".search_member-user__btn--remove", function() {
     $(this).parent().remove();
   });
 });

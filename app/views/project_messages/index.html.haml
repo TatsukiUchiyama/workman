@@ -1,22 +1,22 @@
 .header
   .header__text
-    WORKER
+    =link_to root_path do
+      WORKER
   = link_to corporation_projects_path(@corporation.id) do
     <i class="fas fa-arrow-left"></i>
-  = link_to edit_user_path(current_user) do
-    <i class="fas fa-cog"></i>
-  = link_to destroy_user_session_path, method: :delete do
-    <i class="fas fa-sign-out-alt"></i>
 .main
   .index_header
     %ul 
       %li.list_index
         = @project.name
   %ul.tab-group
-    %li.link_tab
+    %li.link_tab.three
       = link_to corporation_project_path(@corporation.id, @project.id), class:"tab" do
         詳細
-    %li.link_tab.is-active
+    %li.link_tab.three
+      = link_to new_corporation_project_project_message_path(@corporation.id, @project.id), class:"tab" do
+        メンバーを表示
+    %li.link_tab.is-active.three
       メッセージ
 
   .project_messages
@@ -27,5 +27,4 @@
       = f.text_area :message ,class:"message__form__textarea"
       .message__form__submit
         = f.submit "送信" , class: "message__form__submit__btn"
-
 

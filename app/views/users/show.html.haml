@@ -1,0 +1,32 @@
+.header
+  .header__text
+    =link_to root_path do
+      WORKER
+  = link_to :back do
+    <i class="fas fa-arrow-left"></i>
+.main
+  .index_header
+    %ul
+      %li.list_index
+        = @user.name
+  %ul.tab-group
+    %li.tab.is-active 情報
+    %li.tab メンバーを表示
+  .panel-group
+    .panel.is-show 
+      .project__show
+        .project__member.project__label  電話番号
+        .project__member.project__content
+          = @user.tell_number
+        .project__time.project__label  メールアドレス
+        .project__time.project__content
+          = @user.email
+        .project__text.project__label  内容
+        .project__text.project__content.textarea
+          = @user.text
+        - if user_signed_in? && @user.id == current_user.id
+          = link_to edit_user_path(@user.id) do
+            .project_member.edit_view.project_member_edit_btn
+              edit画面へ
+    .panel  
+      何かしら

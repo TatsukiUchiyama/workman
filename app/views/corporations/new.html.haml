@@ -1,49 +1,14 @@
 .header
   .header__text
-    WORKER
+    =link_to root_path do
+      WORKER
     = link_to root_path do
       <i class="fas fa-arrow-left"></i>
 .main
   = form_for @corporation do |f|
-    .corporation-form
-      .corporation-form__name-text
-        = f.label :会社名, class: 'chat-group-form__label'
-      .corporation-form__name-area
-        = f.text_field :name, class: 'corporation-form__name-area__box'
-
-    .corporation_member-form__field
-      .corporation_member-form__field--left
-        %label.corporation_member-form__label メンバーを追加する
-      .corporation_member-form__field--right
-        .corporation_member-form__search
-          %input#user-search-field.corporation_member-form__input{:placeholder => "名前を入力してください", :type => "text"}/
-        #user-search-result
-
-    -# jsで追加されたユーザー名を表示する
-    .corporation_member-form__field
-      .corporation_member-form__field--left
-        %label.corporation_member-form__label 現在のチャットメンバー
-      .corporation_member-form__field--right
-        #corporation_member-users.js-add-user
-
-          .corporation_member-user.js-corporation_member
-            %input{name: "corporation[user_ids][]", type: "hidden", value: current_user.id}
-            %input{name: "corporation[role_ids][]", type: "hidden", value: 1}
-            .corporation_member-user__name
-              %p.corporation_member-user__name--text= current_user.name
-
-          - @corporation.users.each do |user|
-            - if current_user.name != user.name
-              .corporation_member-user.js-corporation_member
-                %input{name: "corporation[user_ids][]", type: "hidden", value: user.id}
-                -# %input{name: "corporation[role_ids][]", type: "hidden", value: 2}
-                .corporation_member-user__name
-                  %p.corporation_member-user__name--text
-                    = user.name
-                %a.user-search-remove.corporation_member-user__btn.corporation_member-user__btn--remove.js-remove-btn
-                  削除
-    .corporation-form__submit
-      = f.submit value: "会社を登録する", class: "corporation-form__submit__btn"
-
-
-
+    .search-form
+      .search-form__name-text
+        = f.label :会社名, class: 'search-form__label'
+      .search-form__name-area
+        = f.text_field :name, class: 'search-form__name-area__box'
+    = render partial: 'form', locals: { corporation: @corporation }

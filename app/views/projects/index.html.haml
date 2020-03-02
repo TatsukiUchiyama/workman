@@ -1,7 +1,8 @@
 -# - if current_user.corporations.ids == @id
 .header
   .header__text
-    WORKER
+    =link_to root_path do
+      WORKER
   = link_to corporations_path do
     <i class="fas fa-arrow-left"></i>
   = link_to edit_user_path(current_user) do
@@ -22,10 +23,5 @@
       = link_to edit_corporation_path(@corporation.id) do
         メンバー追加
   .panel-group
-    .panel.is-show 
+    .panel.is-show
       = render @projects
-
-
-
-
-

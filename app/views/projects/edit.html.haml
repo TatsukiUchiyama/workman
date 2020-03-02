@@ -2,13 +2,13 @@
   .header__text
     =link_to root_path do
       WORKER
-    = link_to  corporation_projects_path(@corporation.id) do
+    = link_to corporation_project_path(@corporation.id, @project.id) do
       <i class="fas fa-arrow-left"></i>
 .main
   .index_header
     %ul 
       %li.list_index
-        = @corporation.name
+        = @project.name
   %ul.tab-group
     %li.tab.is-active 情報
     %li.tab メンバーを追加

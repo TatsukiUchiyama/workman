@@ -1,4 +1,4 @@
-.new__project{
+.new__search{
   text-align: center;
   &__name--text{
     font-size: 20px;
@@ -11,17 +11,14 @@
   }
   &__address__form--box{
     width: 70%;
-  }  &__name--text{
+  }  
+  &__member--text{
     font-size: 20px;
   }
   &__member__form--box{
     width: 70%;
-  }  &__name--text{
-    font-size: 20px;
-  }
-  &__member__form--box{
-    width: 70%;
-  }
+  }  
+  
   &__time--text{
     font-size: 20px;
   }
@@ -48,7 +45,8 @@
     border-radius: 5px;
     line-height: 50px;
     color: blue;
-
+    display: block;
+    margin: 0 auto;
 
 
     }

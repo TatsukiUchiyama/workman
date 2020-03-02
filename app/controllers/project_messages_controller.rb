@@ -5,13 +5,18 @@ class ProjectMessagesController < ApplicationController
     @messages = @project.project_messages.all.order(id: "DESC")
     @message = ProjectMessage.new
     @corporation = Corporation.find(params[:corporation_id])
-    
   end
 
   def create
     ProjectMessage.create(message_params)
     redirect_to corporation_project_project_messages_path(params[:corporation_id], params[:project_id])
   end
+
+  def new
+    @corporation = Corporation.find(params[:corporation_id])
+    @project = Project.find(params[:project_id])
+  end
+
 
 
   private

@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 20200225112441) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "corporation_user_roles", "corporations"
