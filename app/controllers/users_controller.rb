@@ -3,12 +3,6 @@ class UsersController < ApplicationController
     @corporation = Corporation.find(params[:corporation_id])
     @user = User.new
     @project = Project.find(params[:id])
-    # return nil if params[:keyword] == ""
-    # @users = User.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
   end
   def create
     @user = User.new(role_params)
@@ -17,12 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # binding.pry
-    # @corporation = Corporation.find(params[:corporation_id])
-    # @project = Project.find(params[:project_id])
   end
-
-
 
   def edit
   end
@@ -33,6 +22,23 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def unique
+    # 全ユーザーデータのメールアドレスと新規ユーザーの入力したメールアドレスを比較するメソッド
+    users = User.all
+
+    users.each do |user|
+
+      if user.email == params[:keyword]
+        @email = 'a'
+      end
+    end
+
+    respond_to do |format|
+      format.json
+    end
+
   end
 
   private

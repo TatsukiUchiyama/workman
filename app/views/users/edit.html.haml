@@ -2,8 +2,8 @@
   .header__text
     =link_to root_path do
       WORKER
-  = link_to destroy_user_session_path, method: :delete do
-    <i class="fas fa-sign-out-alt"></i>
+  = link_to :back do
+    <i class="fas fa-arrow-left"></i>
 .main
   .account-page
     .account-page__inner.clearfix
@@ -30,8 +30,8 @@
             .field-label
               = f.label :自己紹介文
             .field-input
-              = f.text_area :text ,class: 'field-input__text', rows: "6"
+              = f.text_area :text ,class: 'field-input__text__area', rows: "10"
           .actions
-            = f.submit "更新する", class: 'btn'
-      = link_to "戻る", :back, class: "btn"
+            = f.submit "更新する", class: 'account-page__bottom'
+      = link_to "戻る", :back, class: "account-page__bottom"
 

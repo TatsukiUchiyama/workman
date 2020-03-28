@@ -5,10 +5,6 @@
       WORKER
   = link_to corporations_path do
     <i class="fas fa-arrow-left"></i>
-  = link_to edit_user_path(current_user) do
-    <i class="fas fa-cog"></i>
-  = link_to destroy_user_session_path, method: :delete do
-    <i class="fas fa-sign-out-alt"></i>
 .main
   .index_header
     %ul 
@@ -21,7 +17,8 @@
     %li.link_tab.is-active 案件一覧
     %li.link_tab
       = link_to edit_corporation_path(@corporation.id) do
-        メンバー追加
+        .link_tab__text
+          メンバー追加
   .panel-group
     .panel.is-show
       = render @projects

@@ -1,5 +1,5 @@
-$yellow: image-url("yellow.jpg");
-$sea   : image-url("sea.jpg");
+$yellow: image-url("yellow.png");
+$sea   : image-url("title_area.png");
 $main_font  :serif;
 @import "reset";
 @import "corporation";
@@ -28,7 +28,7 @@ $main_font  :serif;
 
 }
 .main{
-  background-image: image-url('blue.jpg');
+  background-image: image-url('bgi.png');
   width: 100%;
   height: calc( 100vh - 70px );
   overflow-y: overlay;
@@ -62,4 +62,32 @@ a{
 .link_box{
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-width: 1000px){
+  .header{
+  height: 200px;
+    &__text{
+    padding-top: 15px;
+    line-height: 200px;
+    font-size: 100px;
+    }
+  }
+  .fas.fa-arrow-left{
+    font-size: 70px;
+    left: 25px;
+    line-height: 200px;
+  }
+  
+  .fas.fa-cog{
+    font-size: 70px;
+    right: 15px;
+    line-height: 200px;
+    }
+  
+  .fa-sign-out-alt{
+    font-size: 70px;
+    right: 100px;
+    line-height: 200px;
+  }
 }

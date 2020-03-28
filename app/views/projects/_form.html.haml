@@ -3,27 +3,27 @@
     .panel.is-show 
       .new__search
         .new__search__name
-          = f.label :"案件名", class: 'new__search__name--text'
+          = f.label :"案件名", class: 'new__search__name--text new__search__text'
         .new__search__name__form
-          = f.text_field :name, class: 'new__search__name__form--box'
+          = f.text_field :name, class: 'new__search__name__form--box new__search__form--box'
 
         .new__search__address
-          = f.label :"住所", class: 'new__search__address--text'
+          = f.label :"住所", class: 'new__search__address--text new__search__text'
         .new__search__address__form
-          = f.text_field :address, class: 'new__search__address__form--box'
+          = f.text_field :address, class: 'new__search__address__form--box new__search__form--box'
 
         .new__search__member
-          = f.label :"人数", class: 'new__search__member--text'
+          = f.label :"人数", class: 'new__search__member--text new__search__text'
         .new__search__member__form
-          = f.text_field :member, class: 'new__search__member__form--box'
+          = f.text_field :member, class: 'new__search__member__form--box new__search__form--box'
 
         .new__search__time
-          = f.label :"時間", class: 'new__search__time--text'
+          = f.label :"時間", class: 'new__search__time--text new__search__text'
         .new__search__time__form
-          = f.text_field :time, class: 'new__search__time__form--box'
+          = f.text_field :time, class: 'new__search__time__form--box new__search__form--box'
 
         .new__search__content
-          = f.label :"内容", class: 'new__search__content--text'
+          = f.label :"内容", class: 'new__search__content--text new__search__text'
         .new__search__content__form
           = f.text_area :text, class: 'new__search__content__form--area', placeholder:"仕事内容等を入力してください"
         .new__search__submit
