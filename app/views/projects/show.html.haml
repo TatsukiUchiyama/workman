@@ -4,23 +4,22 @@
       WORKER
   = link_to corporation_projects_path(@corporation.id) do
     <i class="fas fa-arrow-left"></i>
-  = link_to edit_user_path(current_user) do
-    <i class="fas fa-cog"></i>
-  = link_to destroy_user_session_path, method: :delete do
-    <i class="fas fa-sign-out-alt"></i>
 .main
   .index_header
     %ul 
       %li.list_index
         = @project.name
   %ul.tab-group
-    %li.tab.is-active.three 詳細
+    %li.link_tab.is-active.three 詳細
     %li.link_tab.three
-      = link_to new_corporation_project_project_message_path(@corporation.id, @project.id), class:"tab" do
-        メンバーを表示
+      = link_to new_corporation_project_project_message_path(@corporation.id, @project.id) do
+        .__three_text
+          メンバーを表示
     %li.link_tab.three
-      = link_to corporation_project_project_messages_path(@corporation.id, @project.id), class:"tab" do
-        メッセージ
+      = link_to corporation_project_project_messages_path(@corporation.id, @project.id) do
+        .link_tab__three_text
+          メッセージ
+
   .panel-group
     .panel.is-show 
       .project__show
@@ -37,5 +36,5 @@
         .project__text.project__content.textarea
           = @project.text
         = link_to edit_corporation_project_path(@corporation.id, @project.id) do
-          .project_member.edit_view.project_member_edit_btn
+          .project_member_edit_btn
             edit画面へ

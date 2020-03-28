@@ -11,11 +11,13 @@
         = @project.name
   %ul.tab-group
     %li.link_tab.three
-      = link_to corporation_project_path(@corporation.id, @project.id), class:"tab" do
-        詳細
+      = link_to corporation_project_path(@corporation.id, @project.id) do
+        .link_tab__three_text
+          詳細
     %li.link_tab.three
-      = link_to new_corporation_project_project_message_path(@corporation.id, @project.id), class:"tab" do
-        メンバーを表示
+      = link_to new_corporation_project_project_message_path(@corporation.id, @project.id) do
+        .link_tab__three_text
+          メンバーを表示
     %li.link_tab.is-active.three
       メッセージ
 

@@ -55,9 +55,6 @@
     margin: auto 20px;
     background-color: #9d9bff;
     border-radius: 20px;
-    // position: absolute;
-    // right: 20px;
-    // top: 15px;
   }
 
 }
@@ -101,12 +98,82 @@ justify-content: space-between;
 
 
 .search_member-form__action-btn{
-  background-color: rgb(250, 203, 83);
+  background: $yellow;
   height: 50px;
   width: 200px;
   border-radius: 20px;
+  font-family: $main_font;
   text-align: center;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto 0;
+  color: blue;
+}
+
+
+@media screen and (max-width: 1000px){
+  
+  .search_member-form__label{
+    font-size: 50px;
+    padding: 30px;
+  }
+  
+  #user-search-field{
+    width: 60%;
+    height: 70px;
+    font-size: 30px;
+  }
+  .search_member-user{
+    &__name{
+      width: 70px;
+      height: 25px;
+      padding: 20px;
+      &--text{
+        font-size: 15px;
+      }
+    }
+  
+    &__btn{
+      line-height: 20px;
+      font-size: 20px;
+      padding: 10px;
+      width: 60px;
+      height: 20px;
+      border-radius: 20px;
+    }
+  
+  }
+	.search_member-user{
+      &__name{
+        width: 300px;
+        height: 25px;
+        line-height: 25px;
+        padding: 40px 10px;
+        font-size: 25px;
+        &--text{
+          font-size: 40px;
+        }
+      }
+
+      &__btn{
+        line-height: 40px;
+        font-size: 40px;
+        padding: 10px;
+        width: 100px;
+        height: 40px;
+        margin: auto 20px;
+        border-radius: 20px;
+      }
+    }
+
+    .search_member-form__action-btn{
+      height: 150px;
+      width: 70%;
+      font-size: 50px;
+      border-radius: 20px;
+    }
+    .new__search__form--box{
+      line-height: 50px;
+      font-size: 50px;
+    }
 }
  

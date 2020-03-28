@@ -1,5 +1,7 @@
 class ProjectMessagesController < ApplicationController
 
+  before_action :move_to_index
+
   def index
     @project = Project.find(params[:project_id])
     @messages = @project.project_messages.all.order(id: "DESC")
@@ -22,6 +24,17 @@ class ProjectMessagesController < ApplicationController
   private
   def message_params
     params.require(:project_message).permit(:message).merge(user_id: current_user.id, project_id: params[:project_id])
+  end
+
+  def move_to_index
+    project = Project.find(params[:project_id])
+    redirect = false
+    project.user_ids.each do |project_user_id|
+      if current_user.id == project_user_id
+        redirect = true
+      end
+    end
+    redirect_to root_path if redirect == false
   end
 
 end

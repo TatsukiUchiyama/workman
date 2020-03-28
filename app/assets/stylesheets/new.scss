@@ -1,32 +1,10 @@
 .new__search{
   text-align: center;
-  &__name--text{
+  &__text{
     font-size: 20px;
   }
-  &__name__form--box{
+  &__form--box{
     width: 70%;
-  }
-  &__address--text{
-    font-size: 20px;
-  }
-  &__address__form--box{
-    width: 70%;
-  }  
-  &__member--text{
-    font-size: 20px;
-  }
-  &__member__form--box{
-    width: 70%;
-  }  
-  
-  &__time--text{
-    font-size: 20px;
-  }
-  &__time__form--box{
-    width: 70%;
-  }  
-  &__content--text{
-    font-size: 20px;
   }
   &__content__form--area{
     width: 70%;
@@ -53,39 +31,37 @@
   }
 }
 
+@media screen and (max-width: 1000px){
+  .new__search{
+    &__text{
+      font-size: 50px;
+    }
+    &__form--box{
+      width: 70%;
+      height: 60px;
+      margin-top: 20px;
+    }
+    &__content__form--area{
+      width: 70%;
+      resize: none;
+      height:500px;
+      font-size: 30px;
+      line-height: 40px;
+    }
+    &__submit{
+      padding-top: 20px;
+  
+      &__btn{
+      border-radius: 20px;
+      line-height: 120px;
+      height: 120px;
+      width: 70%;
+      font-size: 50px;
+      border-radius: 20px;
+      margin-top: 30px;
+      }
+    }
+  }
 
 
-    //     .new__project
-    //       .new__project__name
-    //         = f.label :"案件名", class: 'new__project__name--text'
-    //       .new__project__name__form
-    //         = f.text_field :name, class: 'new__project__name__form--box'
-
-    //       .new__project__address
-    //         = f.label :"住所", class: 'new__project__address--text'
-    //       .new__project__address__form
-    //         = f.text_field :address, class: 'new__project__address__form--box'
-
-    //       .new__project__member
-    //         = f.label :"人数", class: 'new__project__member--text'
-    //       .new__project__member__form
-    //         = f.text_field :member, class: 'new__project__member__form--box'
-
-
-    //       .new__project__time
-    //         = f.label :"時間", class: 'new__project__time--text'
-    //       .new__project__time__form
-    //         = f.text_field :time, class: 'new__project__time__form--box'
-
-    //       .new__project__submit
-    //         = f.submit class: 'new__project__submit__btn'
-    //   .panel
-    //     .new__project
-    //       .new__project__content
-    //         = f.label :"内容", class: 'new__project__content--text'
-    //       .new__project__content__form
-    //         = f.text_area :text, class: 'new__project__content__form--area'
-
-    //       .new__project__submit
-    //         = f.submit class: 'new__project__submit__btn'
-
+}
