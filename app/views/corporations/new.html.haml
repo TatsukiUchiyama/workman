@@ -10,5 +10,6 @@
       .search-form__name-text
         = f.label :会社名, class: 'search-form__label'
       .search-form__name-area
-        = f.text_field :name, class: 'search-form__name-area__box'
+        = f.text_field :name, class: 'search-form__name-area__box', id: 'corporation_name'
+      .search-form__name-area__error
     = render partial: 'form', locals: { corporation: @corporation }

@@ -21,4 +21,11 @@
   .panel-group
     .panel
     .panel.is-show 
-      = render partial: 'form', locals: { corporation: @corporation }
+      = form_for @corporation do |f|
+        .search-form
+          .search-form__name-text
+            = f.label :会社名を変更する, class: 'search-form__label'
+          .search-form__name-area
+            = f.text_field :name, class: 'search-form__name-area__box', id: 'corporation_name'
+          .search-form__name-area__error
+        = render partial: 'form', locals: { corporation: @corporation }
