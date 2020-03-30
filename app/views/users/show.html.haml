@@ -9,9 +9,6 @@
     %ul
       %li.list_index
         = @user.name
-  %ul.tab-group
-    %li.tab.is-active 情報
-    %li.tab メンバーを表示
   .panel-group
     .panel.is-show 
       .project__show
@@ -28,5 +25,3 @@
           = link_to edit_user_path(@user.id) do
             .project_member.edit_view.project_member_edit_btn
               edit画面へ
-    .panel  
-      何かしら
