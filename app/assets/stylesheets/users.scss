@@ -80,7 +80,6 @@
 .password_confirmation__error{
   text-align: center;
   color: red;
-  font-size: 40px;
 }
 
 @media screen and (max-width: 1000px){
@@ -141,4 +140,10 @@
       }
     }
   }	
+  .name__error,
+  .email__error,
+  .password__error,
+  .password_confirmation__error{
+  font-size: 40px;
+  }
 }
