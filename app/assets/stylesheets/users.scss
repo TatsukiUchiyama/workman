@@ -74,6 +74,13 @@
     }
   }
 }
+.name__error,
+.email__error,
+.password__error,
+.password_confirmation__error{
+  text-align: center;
+  color: red;
+}
 
 @media screen and (max-width: 1000px){
 

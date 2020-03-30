@@ -3,4 +3,5 @@ class Project < ApplicationRecord
   has_many :users, through: :project_users
   has_many :project_messages
   has_many :project_users
+  validates :name, presence: true
 end

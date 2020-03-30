@@ -84,6 +84,12 @@
 
 }
 
+.search-form__name-area__error,
+.new__search__name__form__error{
+  text-align: center;
+  color: red;
+}
+
 @media screen and (max-width: 1000px){
   .index_header{
     width: 100%;
