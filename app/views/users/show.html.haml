@@ -20,7 +20,7 @@
           = @user.email
         .project__text.project__label  内容
         .project__text.project__content.textarea
-          = @user.text
+          = simple_format(@user.text)
         - if user_signed_in? && @user.id == current_user.id
           = link_to edit_user_path(@user.id) do
             .project_member.edit_view.project_member_edit_btn

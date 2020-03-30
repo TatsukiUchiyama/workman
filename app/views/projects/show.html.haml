@@ -34,7 +34,7 @@
           = @project.address
         .project__text.project__label  内容
         .project__text.project__content.textarea
-          = @project.text
+          = simple_format(@project.text)
         = link_to edit_corporation_project_path(@corporation.id, @project.id) do
           .project_member_edit_btn
             案件を編集する

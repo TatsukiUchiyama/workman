@@ -1,13 +1,13 @@
 - if user_signed_in? && current_user.id == project_message.user_id
   .project_message.current_user_message
     .project_message__message
-      = project_message.message
+      = simple_format(project_message.message)
     .project_message__time
       = project_message.created_at.to_s(:datetime_jp)
 - else
   .project_message
     .project_message__message
-      = project_message.message
+      = simple_format(project_message.message)
     .project_message__name
       = project_message.user.name
     .project_message__time
