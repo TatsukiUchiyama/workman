@@ -1,3 +1,4 @@
+server '52.192.127.230', user: 'ec2-user', roles: %w{app db web}
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -7,7 +8,6 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server 'http://52.192.127.230/', user: 'ec2-user', roles: %w{app db web}
 
 # role-based syntax
 # ==================
