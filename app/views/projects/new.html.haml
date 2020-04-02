@@ -12,4 +12,65 @@
   %ul.tab-group
     %li.tab.is-active 情報
     %li.tab メンバーを追加
-  = render partial: 'form', locals: { project: @project }
+  = form_for [@corporation, @project] do |f|
+    .panel-group
+      .panel.is-show 
+        .new__search
+          .new__search__name
+            = f.label :"案件名", class: 'new__search__name--text new__search__text'
+          .new__search__name__form
+            = f.text_field :name, class: 'new__search__name__form--box new__search__form--box'
+          .new__search__name__form__error
+
+          .new__search__address
+            = f.label :"住所", class: 'new__search__address--text new__search__text'
+          .new__search__address__form
+            = f.text_field :address, class: 'new__search__address__form--box new__search__form--box'
+
+          .new__search__member
+            = f.label :"人数", class: 'new__search__member--text new__search__text'
+          .new__search__member__form
+            = f.text_field :member, class: 'new__search__member__form--box new__search__form--box'
+
+          .new__search__time
+            = f.label :"時間", class: 'new__search__time--text new__search__text'
+          .new__search__time__form
+            = f.text_field :time, class: 'new__search__time__form--box new__search__form--box'
+
+          .new__search__content
+            = f.label :"内容", class: 'new__search__content--text new__search__text'
+          .new__search__content__form
+            = f.text_area :text, class: 'new__search__content__form--area', placeholder:"仕事内容等を入力してください"
+          .new__search__submit
+            = f.submit "案件を登録する", class: 'new__search__submit__btn'
+      .panel
+        .new__search__form
+          = form_for [@corporation, @project] do |f|
+            .search_member-form__field
+              %label.search_member-form__label メンバーを追加する
+              .search_member-form__search
+                %input#user-search-field.search_member-form__input{:placeholder => "名前を入力してください", :type => "text"}/
+              #user-search-result
+
+            -# jsで追加されたユーザー名を表示する
+            .search_member-form__field
+              %label.search_member-form__label 現在のメンバー
+              #search_member-users.js-add-user
+
+                .search_member-user.js-search_member
+                  %input{name: "project[user_ids][]", type: "hidden", value: current_user.id}
+                  .search_member-user__name
+                    %p.search_member-user__name--text= current_user.name
+
+                - @project.users.each do |user|
+                  - if current_user.name != user.name
+                    .search_member-user.js-search_member
+                      %input{name: "project[user_ids][]", type: "hidden", value: user.id}
+                      -# %input{name: "corporation[role_ids][]", type: "hidden", value: 2}
+                      .search_member-user__name
+                        %p.search_member-user__name--text
+                          = user.name
+                      %a.user-search-remove.search_member-user__btn.search_member-user__btn--remove.js-remove-btn
+                        削除
+            .new__search__submit
+              = f.submit "案件を登録する", class: 'new__search__submit__btn'

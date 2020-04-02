@@ -58,50 +58,13 @@
   }
 
 }
-.search_member-user{
-display: flex;
-justify-content: space-between;
-
-  &__name{
-    width: 70px;
-    height: 25px;
-    padding: 20px;
-    &--text{
-      text-align: center;
-      display: block;
-      font-size: 15px;
-
-    }
-  }
-  &__role{
-    margin: auto;
-    &--item{
-      height: 30px;
-      width: 120px;
-      font-size: 20px;
-    }
-  }
-
-  &__btn{
-    text-align: center;
-    line-height: 20px;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    width: 60px;
-    height: 20px;
-    margin: auto 20px;
-    background-color: #9d9bff;
-    border-radius: 20px;
-  }
-}
 
 
 .search_member-form__action-btn{
   background: $yellow;
   height: 50px;
   width: 200px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-family: $main_font;
   text-align: center;
   display: block;

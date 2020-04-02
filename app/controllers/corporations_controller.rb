@@ -36,14 +36,17 @@ class CorporationsController < ApplicationController
     redirect_to corporation_projects_path(@corporation.id)
   end
 
+  def destroy
+    corporation = Corporation.find(params[:id])
+    corporation.destroy
+    redirect_to corporations_path
+  end
+
   private
   def corporation_params
     params.require(:corporation).permit(:name, user_ids: [])
   end
 
-  # def move_to_index
-  #   redirect_to root_path if current_user.id != params[:id]
-  # end
 
 end
 

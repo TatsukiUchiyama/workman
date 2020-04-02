@@ -29,3 +29,6 @@
             = f.text_field :name, class: 'search-form__name-area__box', id: 'corporation_name'
           .search-form__name-area__error
         = render partial: 'form', locals: { corporation: @corporation }
+      = link_to  corporation_path(@corporation.id), method: :delete, data: {confirm: "本当に会社を削除しますか？"} do
+        .corporation_destroy_btn
+          会社を削除する

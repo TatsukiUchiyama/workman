@@ -1,15 +1,14 @@
 class ProjectsController < ApplicationController
   before_action :move_to_index
   before_action :move_to_corporation, only: [:show, :edit]
+  before_action :corporation, only: [:index, :new, :show, :edit]
 
   def index
     @project = Project.new
-    @corporation = Corporation.find(params[:corporation_id])
     @projects = @corporation.projects.all
   end
 
   def new
-    @corporation = Corporation.find(params[:corporation_id])
     @project = Project.new
     return nil if params[:keyword] == ""
     @users = @corporation.users.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)
@@ -26,11 +25,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @corporation = Corporation.find(params[:corporation_id])
   end
 
   def edit
-    @corporation = Corporation.find(params[:corporation_id])
     @project = Project.find(params[:id])
     return nil if params[:keyword] == ""
     @users = @corporation.users.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)
@@ -45,6 +42,13 @@ class ProjectsController < ApplicationController
     @project.update(project_params)
     redirect_to corporation_project_path(params[:corporation_id], params[:id])
   end
+
+  def destroy
+    project = Project.find(params[:id])
+    project.destroy
+    redirect_to corporation_projects_path(params[:corporation_id])
+  end
+
 
   private
   def project_params
@@ -72,5 +76,10 @@ class ProjectsController < ApplicationController
     end
     redirect_to root_path if redirect == false
   end
+
+  def corporation
+    @corporation = Corporation.find(params[:corporation_id])
+  end
+
 
 end

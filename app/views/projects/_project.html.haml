@@ -1,5 +1,5 @@
 - if project.users.include?(current_user)
-  .index.hidden
+  .index
     .index__btn
       = link_to corporation_project_path(@corporation.id, project.id) do
         .index__btn--text

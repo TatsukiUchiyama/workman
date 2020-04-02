@@ -134,6 +134,20 @@
 	text-align: center;
 	}
 
+.project_delete_btn{
+	background: $yellow;
+	height: 50px;
+	width: 70%;
+	font-size: 20px;
+	font-family: $main_font;
+	border-radius: 5px;
+	line-height: 50px;
+	color: blue;
+	display: block;
+	margin: 20px auto 0;
+	text-align: center;
+	}
+
 	
 @media screen and (max-width: 1000px){
 	.tab{
@@ -220,5 +234,12 @@
 		}
 
 
-
 }
+.project_delete_btn{
+	height: 120px;
+	width: 70%;
+	font-size: 50px;
+	border-radius: 20px;
+	line-height: 120px;
+	margin-top: 60px;
+	}
