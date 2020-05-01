@@ -126,42 +126,73 @@ Visual Studio Code
 
 
 # WORKRES DB設計
-## groups_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :group
-- belongs_to :user
+
 
 ## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|email   |string|null: false,unique: true|
-|password|string|null: false|
-|nickname|string|null: false|
+|Column     |Type  |Options    |
+|-----------|------|-----------|
+|name       |string|null: false|
+|email      |string|null: false,unique: true|
+|password   |string|null: false|
+|tell_number|string|           |
+|text       |text  |           |
 ### Association
-- has_many :messages
-- has_many :groups, through: :groups_users
-- has_many :groups_users
+- has_many :corporations, through: :corporation_user_roles
+- has_many :corporation_user_roles
 
-## messagesテーブル
+
+## corporationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image   |string||
-|body    |text||
-|user_id |integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name|integer|null: false, foreign_key: true|
+### Association
+- has_many :users, through: :corporation_user_roles
+- has_many :corporation_user_roles, dependent: :delete_all
+- has_many :projects, dependent: :destroy
+
+
+## projectsテーブル
+|Column     |Type      |Options    |
+|-----------|----------|-----------|
+|name       |string    |null: false|
+|member     |integer   |           |
+|time       |string    |           |
+|address    |string    |           |
+|text       |text      |           |
+|corporation|references|null: false, foreign_key: true|
+### Association
+- belongs_to :corporation
+- has_many :users, through: :project_users
+- has_many :project_messages, dependent: :delete_all
+- has_many :project_users, dependent: :delete_all
+
+
+## project_messagesテーブル
+|Column |Type      |Options    |
+|-------|----------|-----------|
+|name   |string    |null: false|
+|user   |references|null: false, foreign_key: true|
+|project|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :group
+- belongs_to :project
 
-## groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
+
+## corporation_usersテーブル
+|Column     |Type      |Options|
+|-----------|----------|-------|
+|corporation|references|null: false,foreign_key: true|
+|user       |references|null: false,foreign_key: true|
 ### Association
-- has_many :messages
-- has_many :users, through: :groups_users
-- has_many :groups_users
+- belongs_to :corporation
+- belongs_to :user
+
+
+## project_usersテーブル
+|Column |Type      |Options|
+|-------|----------|-------|
+|project|references|null: false,foreign_key: true|
+|user   |references|null: false,foreign_key: true|
+### Association
+- belongs_to :project
+- belongs_to :user
