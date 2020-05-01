@@ -125,6 +125,7 @@ Visual Studio Code
 - 会社や案件の追加、メッセージが送られてきた際に、端末に通知が送られる機能
 
 
+
 # WORKRES DB設計
 
 
@@ -196,3 +197,4 @@ Visual Studio Code
 ### Association
 - belongs_to :project
 - belongs_to :user
+
